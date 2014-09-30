@@ -1,0 +1,19 @@
+import java.rmi.*;
+import java.rmi.registry.*;
+import java.rmi.server.*;
+import java.net.*;
+public class server 
+{
+  public static void main(String args[]) throws RemoteException
+  {
+     int thisport;
+     String thisaddress;
+     Registry registry;
+     rmiinterface rf=new rmiclass();
+     thisaddress="192.168.0.8";
+     thisport=3230;
+     registry = LocateRegistry.createRegistry(thisport);
+     registry.rebind(thisaddress+"rmi://server", rf);  
+    }
+  }
+

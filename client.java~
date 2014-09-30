@@ -1,0 +1,37 @@
+import java.io.*;
+import java.rmi.registry.*;
+import java.rmi.*;
+import java.net.*;
+public class client 
+{
+  public static void main(String args[])throws IOException,NotBoundException
+  {
+    String a,b,c,d,e,f,g;
+    rmiinterface obj=(rmiinterface)Naming.lookup("192.168.0.8");        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+    System.out.println("Enter the strings for comparing :");
+    a=br.readLine();
+    b=br.readLine();
+    obj.compare(a,b);
+    System.out.println("Enter the string to reverse :");
+    c=br.readLine();
+    obj.reverse(c);
+    System.out.println("Enter the strings for concatenating : ");
+    d=br.readLine();
+    e=br.readLine();
+    obj.append(d,e);
+    System.out.println("Enter the strings for converting to lowercase : ");
+    f=br.readLine();
+    obj.lcase(f);
+    System.out.println("Enter the strings for converting to uppercase : ");
+    g=br.readLine();
+    obj.ucase(g);
+  }
+public void ucase(String str4) throws RemoteException{};
+public void lcase(String str3) throws RemoteException{};
+ public void compare(String s1,String s2) throws RemoteException{};
+   public void reverse(String s) throws RemoteException{};
+   public void append(String str1,String str2) throws RemoteException{};
+
+}  
+    
+
