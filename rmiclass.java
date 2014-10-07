@@ -8,22 +8,29 @@ public class rmiclass extends UnicastRemoteObject implements rmiinterface
    rmiclass()throws RemoteException
    {
    }
-   public void compare(String str1,String str2) throws RemoteException
+   public int compare(String str1,String str2) throws RemoteException
    {
+      int f;
       if(str1.compareTo(str2)>0)
       {
-        System.out.println("First string is greater");
+         f=1;
+          return f;
+        
       }
       else if(str1.compareTo(str2)<0)
       {
-         System.out.println("Second string is greater");
+        f=-1;
+         return f;
+         
       }
       else
-      { 
-        System.out.println("Both are equal");
+      {   
+         f=0;
+          return f;
+        
       }
    }
-   public void reverse(String str) throws RemoteException
+   public String reverse(String str) throws RemoteException
    {
      int i,length;
      String rev=" ";
@@ -32,27 +39,30 @@ public class rmiclass extends UnicastRemoteObject implements rmiinterface
      {
        rev=rev+str.charAt(i);
      }
-     System.out.println("The string after reversing is :"+rev);
+     return rev;
    }
-   public void append(String a,String b) throws RemoteException
+   public String append(String a,String b) throws RemoteException
    {
      String c;
      c=a.concat(b);
-     System.out.println("The String after concatenation is :"+c);
+     return c; 
    }
-  public void lcase(String st) throws RemoteException
+  public String lcase(String st) throws RemoteException
    {
      String lstr;
-     lstr=st.toLowerCase();   
-      System.out.println("The String to lowercase  is :"+lstr);
+     lstr=st.toLowerCase(); 
+     return lstr;     
    }
-  public void ucase(String st) throws RemoteException
+  public String ucase(String st) throws RemoteException
    {
      String ustr;
      ustr=st.toUpperCase();
-     System.out.println("The String to uppercase is :"+ustr);
-     System.out.println("\n\n"); 
+     return ustr;
    }
+  public void close()
+  {
+    System.exit(0);
+  }
 }
         
 
