@@ -14,6 +14,7 @@ public class server
          Registry registry=LocateRegistry.createRegistry(3333);
         // thisaddress="192.168.0.8";
         // thisport=3230;
+         System.out.println("Server binding...\n");
          registry.rebind("rmiinter",rc);  
         }
       catch(Exception e){}
